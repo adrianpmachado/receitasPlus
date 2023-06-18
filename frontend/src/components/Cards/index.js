@@ -9,10 +9,10 @@ const Cards = ({text, details}) => {
         <div class="cards">
             <div class="cards-texts">
                 <p class="titulo">{text}</p>
-                <p class="detalhes">{details}</p>
-            </div>
-            <div>
                 <FontAwesomeIcon icon={faPenToSquare} size="lg" style={{color: "#ffffff",}} />
+            </div>
+            <div class="detalhes">
+                <p >{details}</p>
             </div>
         </div>
     )

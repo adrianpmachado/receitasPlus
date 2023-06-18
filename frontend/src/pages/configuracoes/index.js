@@ -6,7 +6,7 @@ import "./style.css"
 
 const Configuracoes = () => {
     const navigate = useNavigate();
-    
+
     return (
         <div>
             <header

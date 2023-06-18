@@ -6,7 +6,6 @@ import "./style.css"
 
 const Receitas = () => {
     const navigate = useNavigate();
-    
     return (
         <div>
             <header
@@ -19,6 +18,7 @@ const Receitas = () => {
                     </span>
                 RECEITAS
             </header>
+
             <div class="buttons-wrapper">
             </div>
         </div>

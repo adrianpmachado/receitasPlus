@@ -1,0 +1,84 @@
+.cardsreceita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 290px;
+    height:350px;
+
+    background: #222823;
+    border-radius: 13px;
+    
+    overflow: hidden;
+}
+
+.cardstitle {
+    display: flex;
+    height: 20%;
+}
+
+.titulo {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+
+    color: #F4F7F5;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.245em;
+    height: 63%;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.detalhes p {
+    height: 40px;
+    font-size: 16px;
+}
+
+.produzir {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 18%;
+    background: #575A5E;
+}
+
+.roundedbar {
+    display: flex;
+    align-items: center;
+    background: black;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.minus {
+    background: #FF5B5B;
+    height: 40px;
+    width: 300px;
+    color: white;
+}
+
+.tituloprod {
+    background: #82FF96;
+    height: 40px;
+    width: 1200px;
+}
+
+.vezes {
+    height: 40px;
+    width: 300px;
+    color: white;
+}

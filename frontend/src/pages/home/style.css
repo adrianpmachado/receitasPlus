@@ -1,7 +1,7 @@
 .root {
     display: flex;
     flex-direction: column;
-    background: #F4F7F5;
+    height: 100%;
 }
 
 header {

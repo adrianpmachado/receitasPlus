@@ -9,11 +9,12 @@
     border-radius: 13px;
     
     overflow: hidden;
+    margin: 10px;
 }
 
 .cardstitle {
     display: flex;
-    height: 20%;
+    height: 30%;
 }
 
 .titulo {
@@ -35,7 +36,7 @@
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0.245em;
-    height: 63%;
+    height: 60%;
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -50,7 +51,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 18%;
+    height: 20%;
     background: #575A5E;
 }
 

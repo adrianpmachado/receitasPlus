@@ -9,4 +9,4 @@ const Receitas = (sequelize,DataTypes) => {
     });
 };
 
-module.exports = ProducaoDiaria;
+module.exports = Receitas;

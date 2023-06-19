@@ -2,19 +2,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 290px;
-    height:350px;
-
+    height: 350px;
     background: #222823;
     border-radius: 13px;
-    
     overflow: hidden;
     margin: 10px;
 }
 
 .cardstitle {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 30%;
+    padding: 10px;
+    background: #000000; /* Fundo preto */
+    color: #FFFFFF;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
 }
 
 .titulo {
@@ -23,8 +29,7 @@
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.1em;
-
-    color: #F4F7F5;
+    margin: 0;
 }
 
 .detalhes {
@@ -38,48 +43,67 @@
     letter-spacing: 0.245em;
     height: 60%;
     color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
 }
 
 .detalhes p {
-    height: 40px;
+    margin: 5px 0;
     font-size: 16px;
 }
 
 .produzir {
-    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start; /* Movido para a esquerda */
     height: 20%;
     background: #575A5E;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
 }
 
 .roundedbar {
     display: flex;
     align-items: center;
-    background: black;
-    width: 250px;
+    background: #575A5E; /* Alterado para cinza escuro */
+    width: 220px; /* Reduzido o tamanho */
     height: 40px;
-    border-radius: 10px;
+    border-radius: 20px; /* Arredondado nas pontas */
     overflow: hidden;
 }
 
 .minus {
     background: #FF5B5B;
     height: 40px;
-    width: 300px;
+    width: 30%; /* Reduzido o tamanho */
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 .tituloprod {
     background: #82FF96;
     height: 40px;
-    width: 1200px;
+    width: 40%; /* Reduzido o tamanho */
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-top-right-radius: 20px; /* Arredondado apenas na ponta direita */
+    border-bottom-right-radius: 20px; /* Arredondado apenas na ponta direita */
 }
 
 .vezes {
+    background: #575A5E; /* Alterado para cinza escuro */
     height: 40px;
-    width: 300px;
-    color: white;
+    width: 30%; /* Reduzido o tamanho */
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-top-left-radius: 20px; /* Arredondado apenas na ponta esquerda */
+    border-bottom-left-radius: 20px;
 }

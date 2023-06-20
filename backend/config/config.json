@@ -7,17 +7,17 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "receitasplus",
-    "password": "receitasplus",
+    "username": "root",
+    "password": null,
     "database": "receitasplus",
-    "host": "db4free.net",
+    "host": "127.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "receitasplus",
-    "password": "receitasplus",
+    "username": "root",
+    "password": null,
     "database": "receitasplus",
-    "host": "db4free.net",
+    "host": "127.0.1",
     "dialect": "mysql"
   }
 }

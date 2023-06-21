@@ -1,7 +1,6 @@
-const Receitas = (sequelize,DataTypes) => {
-    return sequelize.define('Receitas', {
+const Receita = (sequelize,DataTypes) => {
+    return sequelize.define('Receita', {
         nome: DataTypes.STRING,
-        produto_id: DataTypes.INTEGER,
         tempo_preparo: DataTypes.STRING,
         rendimento: DataTypes.STRING,
         modo_preparo: DataTypes.STRING,
@@ -9,4 +8,4 @@ const Receitas = (sequelize,DataTypes) => {
     });
 };
 
-module.exports = Receitas;
+module.exports = Receita;

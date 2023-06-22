@@ -13,11 +13,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      quantidade: {
+      preco: {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      unidadeMedida: {
+      unidade_medida: {
         type: Sequelize.STRING,
         allowNull: false
       },

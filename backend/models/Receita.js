@@ -5,6 +5,8 @@ const Receita = (sequelize,DataTypes) => {
         rendimento: DataTypes.STRING,
         modo_preparo: DataTypes.STRING,
         lucro_esperado: DataTypes.DOUBLE
+    },{
+        tableName: 'Receita'
     });
 };
 

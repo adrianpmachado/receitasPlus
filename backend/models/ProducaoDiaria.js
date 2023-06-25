@@ -3,7 +3,9 @@ const ProducaoDiaria = (sequelize,DataTypes) => {
         produto_id: DataTypes.INTEGER,
         quantidade: DataTypes.INTEGER,
         data: DataTypes.DATE
-    });
+    }),{
+        tableName: 'ProducaoDiaria'
+    };
 };
 
 module.exports = ProducaoDiaria;

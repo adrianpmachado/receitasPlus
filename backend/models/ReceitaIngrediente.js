@@ -3,6 +3,8 @@ const ReceitaIngrediente = (sequelize,DataTypes) => {
         receita_id: DataTypes.INTEGER,
         ingrediente_id: DataTypes.INTEGER,
         quantidade: DataTypes.INTEGER,
+    },{
+        tableName: 'ReceitaIngrediente'
     });
 };
 

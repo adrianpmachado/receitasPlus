@@ -3,6 +3,8 @@ const Ingrediente = (sequelize,DataTypes) => {
         nome: DataTypes.STRING,
         unidade_medida: DataTypes.STRING,
         preco: DataTypes.DOUBLE
+    },{
+        tableName: 'Ingrediente'
     });
 };
 

@@ -3,107 +3,161 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 290px;
-    height: 350px;
+
+    width: 343px;
+    height: 100%;
+
     background: #222823;
+
     border-radius: 13px;
-    overflow: hidden;
     margin: 10px;
 }
 
 .cardstitle {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+
+    width: 100%;
     height: 30%;
-    padding: 10px;
-    background: #000000; /* Fundo preto */
-    color: #FFFFFF;
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
+
+    line-height: 19px;
+    letter-spacing: 0.1em;
+    color: #F4F7F5;
+
+    padding-top: 10px;
 }
 
 .titulo {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 900;
+    font-size: 18px;
     letter-spacing: 0.1em;
     margin: 0;
 }
 
 .detalhes {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
     font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     letter-spacing: 0.245em;
-    height: 60%;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 20px;
+
+    height: 50%;
+    margin: 20px;
 }
 
-.detalhes p {
-    margin: 5px 0;
+.detalhes div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin: 2px;
+}
+
+.detalhes div .detalhes-titulo {
     font-size: 16px;
+    width: 60%;
+}
+
+.detalhes div .detalhes-info {
+    font-size: 16px;
+    width: 30%;
 }
 
 .produzir {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Movido para a esquerda */
-    height: 20%;
+    justify-content: center;
+    position: relative;
+    
     background: #575A5E;
+
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
+
+    height: 61px;
 }
 
 .roundedbar {
     display: flex;
     align-items: center;
-    background: #575A5E; /* Alterado para cinza escuro */
-    width: 220px; /* Reduzido o tamanho */
-    height: 40px;
+    
+    width: 304px;
+    height: 38px;
+    
     border-radius: 20px; /* Arredondado nas pontas */
+    background: #575A5E; /* Alterado para cinza escuro */
     overflow: hidden;
 }
 
 .minus {
-    background: #FF5B5B;
-    height: 40px;
-    width: 30%; /* Reduzido o tamanho */
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    height: 100%;
+    width: 51px; /* Reduzido o tamanho */
+
+    background: #FF5B5B;
+    border-radius: 20px 0px 0px 20px;
+
     font-weight: bold;
+    color: white;
 }
 
 .tituloprod {
-    background: #82FF96;
-    height: 40px;
-    width: 40%; /* Reduzido o tamanho */
-    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    height: 100%;
+    width: 210px; /* Reduzido o tamanho */
+    
     font-weight: bold;
+    color: #222823;
+
+    background: #82FF96;
+    z-index: 2;
     border-top-right-radius: 20px; /* Arredondado apenas na ponta direita */
     border-bottom-right-radius: 20px; /* Arredondado apenas na ponta direita */
 }
 
 .vezes {
-    background: #575A5E; /* Alterado para cinza escuro */
-    height: 40px;
-    width: 30%; /* Reduzido o tamanho */
-    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    height: 38px;
+    width: 51px; /* Reduzido o tamanho */
+    color: #FFFFFF;
+    
     font-weight: bold;
-    border-top-left-radius: 20px; /* Arredondado apenas na ponta esquerda */
-    border-bottom-left-radius: 20px;
+
+    background: black; /* Alterado para cinza escuro */
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.vezes::after {
+    position: absolute;
+
+    height: 38px;
+    width: 400px;
+
+    background-color: black;
+    z-index: -1;
+
+    content: '';
 }

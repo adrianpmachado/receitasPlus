@@ -7,7 +7,11 @@ import './global.css'
 import Home from './pages/home'
 import Receitas from './pages/receitas';
 import Ingredientes from './pages/ingredientes';
-import Configuracoes from './pages/configuracoes'
+import Configuracoes from './pages/configuracoes';
+import IngredienteAdd from './pages/ingredientes/ingredienteAdd';
+import IngredienteEdit from './pages/ingredientes/ingredienteEdit';
+import ReceitaAdd from './pages/receitas/receitaAdd';
+import ReceitaShow from './pages/receitas/receitaShow';
 
 const router = createBrowserRouter([
   {
@@ -19,13 +23,30 @@ const router = createBrowserRouter([
     element: <Receitas />
   },
   {
+    path: "/receitas/receitaAdd",
+    element: <ReceitaAdd />
+  },
+  {
+    path: "/receitas/receitaShow/:id",
+    element: <ReceitaShow />
+  },
+  {
     path: "/configuracoes",
     element: <Configuracoes />
   },
   {
     path: "/ingredientes",
     element: <Ingredientes />
+  },
+  {
+    path: "/ingredientes/ingredienteAdd",
+    element: <IngredienteAdd />
+  },
+  {
+    path: "/ingredientes/ingredienteEdit/:id",
+    element: <IngredienteEdit />
   }
+
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 import CardsReceitas from "../../components/CardsReceitas"
@@ -10,6 +10,7 @@ const Receitas = () => {
     return (
         <div class="root">
             <header
+                    class="header-receitas"
                     onClick={() => {
                         navigate("/")
                     }}    
@@ -21,26 +22,37 @@ const Receitas = () => {
             </header>
 
             <div class="buttons-wrapper">
+                <div 
+                    class="add-button-wrapper" 
+                    onClick={() => navigate("/receitas/receitaAdd")}
+                >
+                    <div>
+                        <FontAwesomeIcon icon={faPlus} size="3x" style={{color: "#ffffff",}} />
+                    </div>
+                </div>
                 <CardsReceitas 
+                    id={12312}
                     text="Sabão em Barra de Verbena" 
-                    materiais="R$10,35" 
-                    maoDeObra="R$10,00"
-                    custoProd="R$20,35"
-                    precoVenda="R$40,70"
+                    materiais={10.3} 
+                    maoDeObra={30.0}
+                    custoProd={20.3}
+                    precoVenda={40.70}
                 />
                 <CardsReceitas 
+                    id={12312}
                     text="Sabão em Barra de Verbena" 
-                    materiais="R$10,35" 
-                    maoDeObra="R$10,00"
-                    custoProd="R$20,35"
-                    precoVenda="R$40,70"
+                    materiais={10.35} 
+                    maoDeObra={10.3}
+                    custoProd={20.35}
+                    precoVenda={40.70}
                 />
                 <CardsReceitas 
+                    id={123123}
                     text="Sabão em Barra de Verbena" 
-                    materiais="R$10,35" 
-                    maoDeObra="R$10,00"
-                    custoProd="R$20,35"
-                    precoVenda="R$40,70"
+                    materiais={10.35} 
+                    maoDeObra={10.3}
+                    custoProd={20.35}
+                    precoVenda={40.70}
                 />
             </div>
         </div>

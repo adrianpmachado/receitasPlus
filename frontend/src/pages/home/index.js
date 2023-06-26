@@ -6,7 +6,11 @@ const Home = () => {
 
     return (
         <div class="root">
-            <header>PAGINA INICIAL</header>
+            <header
+                class="header-home"    
+            >
+                PAGINA INICIAL
+            </header>
             <div class="buttons-wrapper">
                 <div 
 

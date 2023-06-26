@@ -10,6 +10,7 @@ const Configuracoes = () => {
     return (
         <div>
             <header
+                    class="header-configuracoes"
                     onClick={() => {
                         navigate("/")
                     }}    

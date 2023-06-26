@@ -6,12 +6,12 @@
     height: 100%;
 }
 
-header {
+.header-receitas {
     background-color: #222823;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     height: 62px;
     color: #F4F7F5;
     font-weight: 600;
@@ -20,7 +20,30 @@ header {
     overflow: hidden;
 }
 
+.header-receitas span {
+    position: absolute;
+    left: -155px;
+
+}
+
 .buttons-wrapper {
     display: grid;
     margin-top: 200px;
+}
+
+.add-button-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.add-button-wrapper div {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px black;
+    background-color: #575A5E;
+
+    z-index: 5;
 }

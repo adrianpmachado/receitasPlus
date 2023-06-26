@@ -4,18 +4,36 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 
-const CardsReceitas = ({text, materiais, maoDeObra, custoProd, precoVenda}) => {
+const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd, precoVenda}) => {
+    const navigate = useNavigate();
+
     return (
         <div class="cardsreceita">
-            <div class="cardstitle">
+            <div class="cardstitle"
+                onClick={() => {
+                    navigate("/receitas/receitaShow/" + id)
+                }}
+            >
                 <p class="titulo">{text}</p>
                 <FontAwesomeIcon icon={faPenToSquare} size="lg" style={{color: "#ffffff",}} />
             </div>
             <div class="detalhes">
-                <p>Materiais: {materiais}</p>
-                <p>Mao de obra: {maoDeObra}</p>
-                <p>Custo produção: {custoProd}</p>
-                <p>Preço de venda: {precoVenda}</p>
+                <div>
+                    <span class="detalhes-titulo">Materiais</span>
+                    <span class="detalhes-info">R${materiais}</span>
+                </div>
+                <div>
+                    <span class="detalhes-titulo"> Mão de obra</span>
+                    <span class="detalhes-info">R${maoDeObra}</span>
+                </div>
+                <div>
+                    <span class="detalhes-titulo">Custo de produção</span>
+                    <span class="detalhes-info">R${custoProd}</span>
+                </div>
+                <div>
+                    <span class="detalhes-titulo"> Preço de venda</span>
+                    <span class="detalhes-info">R${precoVenda}</span>
+                </div>
             </div>    
             <div class="produzir">
                 <div class="roundedbar">

@@ -3,7 +3,13 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('ReceitaIngrediente', {
-      receitaId: {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      receita_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -14,7 +20,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      ingredienteId: {
+      ingrediente_Id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -27,10 +33,6 @@ module.exports = {
       },
       quantidade: {
         type: Sequelize.FLOAT,
-        allowNull: false
-      },
-      unidadeMedida: {
-        type: Sequelize.STRING,
         allowNull: false
       },
       createdAt: {

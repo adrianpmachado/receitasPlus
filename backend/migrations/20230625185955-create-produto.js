@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      usuario_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       descricao: {
         type: Sequelize.TEXT,
         allowNull: true
@@ -21,7 +25,7 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      receitaId: {
+      receita_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

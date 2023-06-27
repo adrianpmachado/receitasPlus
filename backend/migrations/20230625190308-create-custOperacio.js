@@ -11,11 +11,15 @@ module.exports = {
       },
       descricao: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       valor: {
         type: Sequelize.FLOAT,
         allowNull: false
+      },
+      usuario_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       data: {
         type: Sequelize.DATEONLY,

@@ -13,13 +13,25 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      descricao: {
+      modo_preparo: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      tempo_preparo: {
         type: Sequelize.TEXT,
+        allowNull: true
+      },
+      rendimento:{
+        type:Sequelize.STRING,
+        allowNull: true
+      },
+      lucro_esperado:{
+        type:Sequelize.STRING,
         allowNull: true
       },
       usuarioId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Usuario',
           key: 'id'

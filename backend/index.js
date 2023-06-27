@@ -6,13 +6,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use('/usuarios', controllers.usuario); //
-app.use('/receitas',controllers.receita) //
-app.use('/receitaIngredientes',controllers.receitaIngrediente) //
-app.use('/produtos',controllers.produto) //
+app.use('/usuarios', controllers.usuario); //ok
+app.use('/receitas',controllers.receita) // ok 
+app.use('/receitaIngredientes',controllers.receitaIngrediente) // ok 
+app.use('/produtos',controllers.produto) // ok 
 app.use('/producaoDiarias',controllers.ProducaoDiaria)//
-app.use('/ingredientes',controllers.ingrediente)//
-app.use('/custoOperacionais',controllers.custoOperacional)
+app.use('/ingredientes',controllers.ingrediente)// ok
+app.use('/custoOperacionais',controllers.custoOperacional) //ok
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

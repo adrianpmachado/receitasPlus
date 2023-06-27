@@ -3,6 +3,7 @@ const Receita = (sequelize,DataTypes) => {
         nome: DataTypes.STRING,
         tempo_preparo: DataTypes.STRING,
         rendimento: DataTypes.STRING,
+        usuarioId: DataTypes.INTEGER,
         modo_preparo: DataTypes.STRING,
         lucro_esperado: DataTypes.DOUBLE
     },{

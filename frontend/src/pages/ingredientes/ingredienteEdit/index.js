@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 
 const IngredienteEdit = () => {
     const navigate = useNavigate();
+    const id = window.location.pathname.split("/")[3]
 
     const [nome, setNome] = useState("");
     const [preco, setPreco] = useState("");
@@ -16,23 +17,46 @@ const IngredienteEdit = () => {
         e.preventDefault()
         
         // TODO: UPDATE no banco
-        console.log(nome)
-        console.log(preco)
-        console.log(unidade)
-
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ nome, unidade_medida: unidade, preco })
+        } 
+        fetch('/ingredientes/' + id, requestOptions)
+        .then(() => {
+            navigate("/ingredientes")
+        })
         navigate("/ingredientes")
+    }
+
+    function removeIngrediente() {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json'},
+        } 
+        fetch('/ingredientes/' + id, requestOptions)
+        .then(() => {
+            navigate("/ingredientes")
+        })
     }
 
     useEffect(() => {
         // TODO: GET no banco para pegar as infos do url
-
-        setNome();
-        setPreco();
-        setUnidade();
+        function resIngredientes()
+        {
+            fetch('/ingredientes/' + id)
+                .then(res => res.json())
+                .then(data => {
+                    setNome(data.nome);
+                    setPreco(data.preco);
+                    setUnidade(data.unidade_medida);
+                })
+        }
+        resIngredientes()
     }, [])
 
     return (
-        <div class="root">
+        <div class="root-ingrediente-edit">
             <header
                 class="header-ingrediente-edit"
                 onClick={() => {
@@ -44,7 +68,7 @@ const IngredienteEdit = () => {
                 </span>
                   EDITAR INGREDIENTE
             </header>
-            <div class="buttons-wrapper">
+            <div class="buttons-wrapper-ingrediente-edit">
                 <form
                     class="ingrediente-edit-form"
                     onSubmit={editIngrediente}
@@ -74,11 +98,15 @@ const IngredienteEdit = () => {
                         </label>
                     </div>
                     <div>
-                        <button type="submit" style={{background: "#C81919"}}>
+                        <button 
+                            type="button" 
+                            style={{background: "#C81919"}}
+                            onClick={() => removeIngrediente()}
+                        >
                             EXCLUIR
                             <FontAwesomeIcon icon={faTrash} style={{marginLeft: "10px",color: "#ffffff",}} />
                         </button>
-                        <button type="submit">ADICIONAR</button>
+                        <button type="submit">ATUALIZAR</button>
                     </div>
 
                 </form>

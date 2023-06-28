@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
 
-    width: 343px;
+    width: 400px;
     height: 100%;
 
     background: #222823;
@@ -13,10 +13,10 @@
     margin: 10px;
 }
 
-.cardstitle {
+.cardstitle-receita {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     font-family: 'Inter';
     font-style: normal;
@@ -26,56 +26,58 @@
     width: 100%;
     height: 30%;
 
-    line-height: 19px;
-    letter-spacing: 0.1em;
     color: #F4F7F5;
 
-    padding-top: 10px;
+    margin: 15px 10px 10px 40px;
 }
 
-.titulo {
+.titulo-receita  {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
     font-size: 18px;
     letter-spacing: 0.1em;
-    margin: 0;
 }
 
-.detalhes {
+.detalhes-receita  {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
+    color: #F4F7F5;
     font-family: 'Inter';
     font-weight: 400;
     letter-spacing: 0.245em;
 
     height: 50%;
-    margin: 20px;
+    width: 100%;
+
+    margin-bottom: 15px;
 }
 
-.detalhes div {
+.detalhes-receita  div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     width: 100%;
-    margin: 2px;
+    margin-bottom: 4px;
 }
 
-.detalhes div .detalhes-titulo {
+.detalhes-receita  div .detalhes-titulo-receita  {
+    text-align: left;
     font-size: 16px;
+    margin-left: 30px;
     width: 60%;
 }
 
-.detalhes div .detalhes-info {
+.detalhes-receita  div .detalhes-info-receita {
     font-size: 16px;
     width: 30%;
 }
 
-.produzir {
+.produzir-receita  {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,7 +91,7 @@
     height: 61px;
 }
 
-.roundedbar {
+.roundedbar-receita  {
     display: flex;
     align-items: center;
     
@@ -101,7 +103,7 @@
     overflow: hidden;
 }
 
-.minus {
+.minus-receita {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,7 +118,7 @@
     color: white;
 }
 
-.tituloprod {
+.tituloprod-receita  {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,7 +135,7 @@
     border-bottom-right-radius: 20px; /* Arredondado apenas na ponta direita */
 }
 
-.vezes {
+.vezes-receita  {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,7 +152,7 @@
     z-index: 1;
 }
 
-.vezes::after {
+.vezes-receita::after {
     position: absolute;
 
     height: 38px;

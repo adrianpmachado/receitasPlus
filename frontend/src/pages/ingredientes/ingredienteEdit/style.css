@@ -1,4 +1,4 @@
-.root {
+.root-ingrediente-edit {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,17 +24,17 @@
 .header-ingrediente-edit span {
     position: absolute;
     left: -155px;
-
 }
 
 /* 
     BODY
 */
 
-.buttons-wrapper {
+.buttons-wrapper-ingrediente-edit {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: 170px;
 }
 
 /* FORMULARIO PRA ADICIONAR */

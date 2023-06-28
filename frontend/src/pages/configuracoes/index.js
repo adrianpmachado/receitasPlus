@@ -22,7 +22,7 @@ const Configuracoes = () => {
     }
 
     return (
-        <div className="root">
+        <div className="root-configuracoes">
             <header
                 className="header-configuracoes"
                 onClick={() => {

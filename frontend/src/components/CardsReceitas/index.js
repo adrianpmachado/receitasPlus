@@ -4,42 +4,46 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 
-const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd, precoVenda}) => {
+const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd}) => {
     const navigate = useNavigate();
 
     return (
         <div class="cardsreceita">
-            <div class="cardstitle"
-                onClick={() => {
-                    navigate("/receitas/receitaShow/" + id)
-                }}
-            >
-                <p class="titulo">{text}</p>
-                <FontAwesomeIcon icon={faPenToSquare} size="lg" style={{color: "#ffffff",}} />
+            <div class="cardstitle-receita">
+                <div 
+                    class="titulo-receita"
+                    onClick={() => {
+                        navigate("/receitas/receitaShow/" + id)
+                    }}
+                >{text}</div>
+                <div 
+                    style={{ width:"120px", zIndex: 10 }} 
+                    onClick={() => {
+                        navigate("/receitas/receitaAdd")
+                    }}
+                >
+                    <FontAwesomeIcon icon={faPenToSquare} size="lg" style={{color: "#ffffff",}} />
+                </div>
             </div>
-            <div class="detalhes">
+            <div class="detalhes-receita">
                 <div>
-                    <span class="detalhes-titulo">Materiais</span>
-                    <span class="detalhes-info">R${materiais}</span>
+                    <div class="detalhes-titulo-receita">Tempo de preparo</div>
+                    <div class="detalhes-info-receita">{materiais} min</div>
                 </div>
                 <div>
-                    <span class="detalhes-titulo"> Mão de obra</span>
-                    <span class="detalhes-info">R${maoDeObra}</span>
+                    <div class="detalhes-titulo-receita">Rendimento</div>
+                    <div class="detalhes-info-receita">{maoDeObra}x</div>
                 </div>
                 <div>
-                    <span class="detalhes-titulo">Custo de produção</span>
-                    <span class="detalhes-info">R${custoProd}</span>
-                </div>
-                <div>
-                    <span class="detalhes-titulo"> Preço de venda</span>
-                    <span class="detalhes-info">R${precoVenda}</span>
+                    <div class="detalhes-titulo-receita">Lucro esperado</div>
+                    <div class="detalhes-info-receita">R${custoProd}</div>
                 </div>
             </div>    
-            <div class="produzir">
-                <div class="roundedbar">
-                    <div class="minus"> - </div>
-                    <div class="tituloprod"> Produzir + </div>
-                    <div class="vezes"> 2 </div>
+            <div class="produzir-receita ">
+                <div class="roundedbar-receita ">
+                    <div class="minus-receita "> - </div>
+                    <div class="tituloprod-receita "> Produzir + </div>
+                    <div class="vezes-receita "> 2 </div>
                 </div>
             </div>    
         </div>

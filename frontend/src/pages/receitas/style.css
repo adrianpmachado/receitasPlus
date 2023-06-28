@@ -1,4 +1,4 @@
-.root {
+.root-receitas {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -26,24 +26,25 @@
 
 }
 
-.buttons-wrapper {
-    display: grid;
-    margin-top: 200px;
+.buttons-wrapper-receitas {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 120px;
 }
 
-.add-button-wrapper {
+.add-button-wrapper-receitas {
     position: fixed;
+    bottom: 25px;
     width: 100%;
     z-index: 10;
 }
 
-.add-button-wrapper div {
+.add-button-wrapper-receitas div {
     width: 80px;
     height: 80px;
 
     border-radius: 100%;
     box-shadow: 0px 0px 10px black;
     background-color: #575A5E;
-
-    z-index: 5;
 }

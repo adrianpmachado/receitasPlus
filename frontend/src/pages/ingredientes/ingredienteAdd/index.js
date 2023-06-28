@@ -10,21 +10,23 @@ const IngredienteAdd = () => {
 
     const [nome, setNome] = useState("");
     const [preco, setPreco] = useState("");
-    const [unidade, setUnidade] = useState("");
+    const [unidade, setUnidade] = useState("g");
 
     function addIngrediente(e) {
         e.preventDefault()
         
-        // TODO: POST no banco
-        console.log(nome)
-        console.log(preco)
-        console.log(unidade)
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ nome, unidade_medida: unidade, preco })
+        } 
+        fetch('/ingredientes', requestOptions)
 
         navigate("/ingredientes")
     }
 
     return (
-        <div class="root">
+        <div class="root-ingrediente-add">
             <header
                 class="header-ingrediente-add"
                 onClick={() => {
@@ -36,7 +38,7 @@ const IngredienteAdd = () => {
                 </span>
                 NOVO  INGREDIENTE
             </header>
-            <div class="buttons-wrapper">
+            <div class="buttons-wrapper-ingrediente-add">
                 <form
                     class="ingrediente-add-form"
                     onSubmit={addIngrediente}
@@ -48,7 +50,7 @@ const IngredienteAdd = () => {
                         </label>
                         <label>
                             <span>PREÇO</span>
-                            <input value={preco} onChange={(e) => setPreco(e.target.value)}></input>                        
+                            <input type="number" value={preco} onChange={(e) => setPreco(e.target.value)}></input>                        
                         </label>
                         <label>
                             <span>UNIDADE</span>

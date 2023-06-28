@@ -1,3 +1,11 @@
+.root-configuracoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #F4F7F5;
+}
+
 .header-configuracoes {
     background-color: #222823;
     display: flex;
@@ -11,6 +19,11 @@
     left: 0px;
     top: 0px;
     overflow: hidden;
+}
+
+.header-configuracoes span {
+    position: absolute;
+    left: -155px;
 }
 
 .buttons-wrapper {

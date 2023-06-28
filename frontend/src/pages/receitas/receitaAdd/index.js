@@ -9,20 +9,25 @@ const ReceitaAdd = () => {
     const navigate = useNavigate();
 
     const [nome, setNome] = useState("");
-    const [tempo, setTempo] = useState("");
-    const [lucro, setLucro] = useState("");
+    const [tempo, setTempo] = useState(0);
+    const [lucro, setLucro] = useState(0);
     const [modoPreparo, setModoPreparo] = useState("");
 
     function addIngrediente(e) {
         e.preventDefault()
         
-        // TODO: POST no banco
-        console.log(nome)
-        console.log(tempo)
-        console.log(lucro)
-        console.log(modoPreparo)
-
-        navigate("/receitas")
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ 
+                nome, tempo_preparo: tempo, rendimento: lucro, usuarioId: 1, 
+                modo_preparo: modoPreparo, lucro_esperao: 0
+            })
+        } 
+        fetch('/receitas', requestOptions)
+        .then(() => {
+            navigate("/receitas")
+        })
     }
 
     return (
@@ -49,12 +54,12 @@ const ReceitaAdd = () => {
                             <input value={nome} onChange={(e) => setNome(e.target.value)}></input>                        
                         </label>
                         <label>
-                            <span>TEMPO DE PREPARO</span>
-                            <input value={tempo} onChange={(e) => setTempo(e.target.value)}></input>                        
+                            <span>TEMPO DE PREPARO (min)</span>
+                            <input type="number" value={tempo} onChange={(e) => setTempo(e.target.value)}></input>                        
                         </label>
                         <label>
-                            <span>MULTIPLICADOR DE LUCRO</span>
-                            <input value={lucro} onChange={(e) => setLucro(e.target.value)}></input>                        
+                            <span>MULTIPLICADOR DE LUCRO (vezes)</span>
+                            <input type="number" value={lucro} onChange={(e) => setLucro(e.target.value)}></input>                        
                         </label>
                         <label>
                             <span>MODO DE PREPARO</span>

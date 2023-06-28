@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from "react"
+import ReactLoading from 'react-loading'
 
 import CardsIngredientes from "../../components/CardsIngredientes"
 import "./style.css"
@@ -8,9 +10,24 @@ import "./style.css"
 const Ingredientes = () => {
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(true)
+    const [ingredientesList, setIngredientesList] = useState([{}])
+
+    useEffect(() => {
+        function resIngredientes()
+        {
+            fetch('/ingredientes')
+                .then(res => res.json())
+                .then(data => {
+                    setIngredientesList(data)
+                    setLoading(false)
+                })
+        }
+        resIngredientes()
+    }, [])
     
     return (
-        <div class="root">
+        <div class="root-ingredientes">
             <header
                 class="header-ingredientes"
                 onClick={() => {
@@ -22,23 +39,32 @@ const Ingredientes = () => {
                 </span>
                 INGREDIENTES
             </header>
-            <div class="buttons-wrapper">
-                <div 
-                    class="add-button-wrapper" 
-                    onClick={() => navigate("/ingredientes/ingredienteAdd")}
-                >
-                    <div>
-                        <FontAwesomeIcon icon={faPlus} size="3x" style={{color: "#ffffff",}} />
+            {loading ?
+                <div class="loading-ingredientes">
+                    <ReactLoading type="spin" color="black"/>   
+                </div> 
+                :
+                <div class="buttons-wrapper-ingredientes">
+                    <div 
+                        class="add-button-wrapper-ingredientes" 
+                        onClick={() => navigate("/ingredientes/ingredienteAdd")}
+                    >
+                        <div>
+                            <FontAwesomeIcon icon={faPlus} size="3x" style={{color: "#ffffff",}} />
+                        </div>
                     </div>
+                    { ingredientesList.map(ingrediente => {
+                        return (
+                            <CardsIngredientes
+                                key={ingrediente.id} 
+                                id={ingrediente.id}
+                                details={"R$" + ingrediente.preco + "/" + ingrediente.unidade_medida}
+                                text={ingrediente.nome}
+                            />
+                        )
+                    })}
                 </div>
-                <CardsIngredientes id={12} text="Base Glicerinada Branca" details="R$0,05/ml"/>
-                <CardsIngredientes id={12} text="Base Glicerinada Branca" details="R$0,05/ml"/>
-                <CardsIngredientes id={12} text="Base Glicerinada Branca" details="R$0,05/ml"/>
-                <CardsIngredientes id={12} text="Base Glicerinada Branca" details="R$0,05/ml"/>
-                <CardsIngredientes id={12} text="Essência de Verbena" details="R$0,05/ml"/>
-                <CardsIngredientes id={12} text="Extrato Glicolivo de Aloe Vera" details="R$0,05/ml"/>
-                <CardsIngredientes id={12} text="Base Glicerinada Branca" details="R$0,05/ml"/>
-            </div>
+            }
         </div>
     )
 }

@@ -1,29 +1,42 @@
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const ReceitaShow = () => {
     const navigate = useNavigate();
 
-    const [nome, setNome] = useState("");
-    const [tempo, setTempo] = useState("");
-    const [lucro, setLucro] = useState("");
-    const [modoPreparo, setModoPreparo] = useState("");
+    const id = window.location.pathname.split("/")[3]
+    const [receita, setReceita] = useState([{
+        nome: "",
+        tempo_preparo: "",
+        rendimento: "",
+        modo_preparo: "",
+        lucro_esperado: 0
+    }])
 
-    function addIngrediente(e) {
-        e.preventDefault()
-        
-        // TODO: POST no banco
-        console.log(nome)
-        console.log(tempo)
-        console.log(lucro)
-        console.log(modoPreparo)
-
-        navigate("/receitas")
+    function editRendimento(times) {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ rendimento: parseInt(receita.rendimento) + times })
+        } 
+        fetch('/receitas/' + id, requestOptions)
     }
+
+    useEffect(() => {
+        function resReceita()
+        {
+            fetch('/receitas/' + id)
+                .then(res => res.json())
+                .then(data => {
+                    setReceita(data)
+                })
+        }
+        resReceita()
+    }, [receita])
 
     return (
         <div class="root-receita-show">
@@ -36,33 +49,32 @@ const ReceitaShow = () => {
                 <span>
                     <FontAwesomeIcon icon={faArrowLeft} size="lg" style={{color: "#ffffff",}} />
                 </span>
-                ADICIONAR RECEITA
+                RECEITA
             </header>
             <div class="buttons-wrapper">
                 <form
                     class="receita-show-form"
-                    onSubmit={addIngrediente}
+                    onSubmit={(e) => {console.log("oi")}}
                 >
                     <div>
                         <label>
                             <span>NOME DO PRODUTO</span>
-                            <input value={nome} readonly></input>                        
+                            <input defaultValue={receita.nome} readOnly></input>                        
                         </label>
                         <label>
-                            <span>TEMPO DE PREPARO</span>
-                            <input value={tempo} readonly></input>                        
+                            <span>TEMPO DE PREPARO (min)</span>
+                            <input defaultValue={receita.tempo_preparo} readOnly></input>                        
                         </label>
                         <label>
-                            <span>MULTIPLICADOR DE LUCRO</span>
-                            <input value={lucro} readonly></input>                        
+                            <span>MULTIPLICADOR DE LUCRO (vezes)</span>
+                            <input defaultValue={receita.rendimento} readOnly></input>                        
                         </label>
                         <label>
                             <span>MODO DE PREPARO</span>
-                            <textarea value={modoPreparo} readonly></textarea>                        
+                            <textarea defaultValue={receita.modo_preparo} readOnly></textarea>                        
                         </label>
                         <button type="button" class="show-ingrediente" >MOSTRAR INGREDIENTES</button>
                     </div>
-                    <button type="submit">ADICIONAR</button>
                 </form>
             </div>
             <footer
@@ -70,11 +82,15 @@ const ReceitaShow = () => {
             >
                 <div>TOTAL</div>
                 <div class="producao">
-                    <div class="reduzir">-</div>
-                    <div class="vezess">1/2</div>
-                    <div class="aumentar">+</div>
+                    <div
+                        onClick={() => {editRendimento(-1)}}
+                        class="reduzir">-</div>
+                    <div class="vezess">{receita.rendimento}</div>
+                    <div 
+                        onClick={() => {editRendimento(1)}}
+                        class="aumentar">+</div>
                 </div>
-                <div class="resultado">R$123,00</div>
+                <div class="resultado">R${receita.lucro_esperado}</div>
             </footer>
         </div>
     )

@@ -1,4 +1,4 @@
-.root {
+.root-ingrediente-add {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,10 +31,11 @@
     BODY
 */
 
-.buttons-wrapper {
+.buttons-wrapper-ingrediente-add {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: 170px;
 }
 
 /* FORMULARIO PRA ADICIONAR */

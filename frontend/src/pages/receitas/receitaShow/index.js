@@ -4,6 +4,7 @@ import { faArrowLeft, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 import { useEffect, useState } from "react"
+import api from "../../../service/api"
 
 const ReceitaShow = () => {
     const navigate = useNavigate();
@@ -18,24 +19,22 @@ const ReceitaShow = () => {
     }])
 
     function editRendimento(times) {
-        const requestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({ rendimento: parseInt(receita.rendimento) + times })
-        } 
-        fetch('/receitas/' + id, requestOptions)
+        api
+            .put("/receitas/" + id, {
+                rendimento: parseInt(receita.rendimento) + times
+            })
     }
 
     useEffect(() => {
-        function resReceita()
+        function resReceitas()
         {
-            fetch('/receitas/' + id)
-                .then(res => res.json())
-                .then(data => {
-                    setReceita(data)
+            api
+                .get('/receitas/' + id)
+                .then(response => {
+                    setReceita(response.data)
                 })
         }
-        resReceita()
+        resReceitas()
     }, [receita])
 
     return (

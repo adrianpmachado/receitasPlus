@@ -4,6 +4,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 import { useState } from "react"
+import api from "../../../service/api"
 
 const IngredienteAdd = () => {
     const navigate = useNavigate();
@@ -14,16 +15,13 @@ const IngredienteAdd = () => {
 
     function addIngrediente(e) {
         e.preventDefault()
-        
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({ nome, unidade_medida: unidade, preco })
-        } 
-        fetch('/ingredientes', requestOptions)
-        .then(() => {
-            navigate("/ingredientes")
-        })
+        api
+            .post("/ingredientes", {
+                nome, unidade_medida: unidade, preco
+            })
+            .then(() => {
+                navigate("/ingredientes")
+            })
     }
 
     return (

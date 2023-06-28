@@ -6,6 +6,7 @@ import ReactLoading from 'react-loading'
 
 import CardsIngredientes from "../../components/CardsIngredientes"
 import "./style.css"
+import api from "../../service/api"
 
 const Ingredientes = () => {
     const navigate = useNavigate();
@@ -16,12 +17,12 @@ const Ingredientes = () => {
     useEffect(() => {
         function resIngredientes()
         {
-            fetch('/ingredientes')
-                .then(res => res.json())
-                .then(data => {
-                    setIngredientesList(data)
+            api
+                .get('/ingredientes')
+                .then(response => {
+                    setIngredientesList(response.data)
                     setLoading(false)
-                })
+                })  
         }
         resIngredientes()
     }, [])

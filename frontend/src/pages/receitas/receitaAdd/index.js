@@ -4,6 +4,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 import { useState } from "react"
+import api from "../../../service/api"
 
 const ReceitaAdd = () => {
     const navigate = useNavigate();
@@ -13,21 +14,17 @@ const ReceitaAdd = () => {
     const [lucro, setLucro] = useState(0);
     const [modoPreparo, setModoPreparo] = useState("");
 
-    function addIngrediente(e) {
+    function addReceita(e) {
         e.preventDefault()
         
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({ 
+        api
+            .post("/receitas", {
                 nome, tempo_preparo: tempo, rendimento: lucro, usuarioId: 1, 
                 modo_preparo: modoPreparo, lucro_esperao: 0
             })
-        } 
-        fetch('/receitas', requestOptions)
-        .then(() => {
-            navigate("/receitas")
-        })
+            .then(() => {
+                navigate("/receitas")
+            })
     }
 
     return (
@@ -46,7 +43,7 @@ const ReceitaAdd = () => {
             <div class="buttons-wrapper">
                 <form
                     class="receita-add-form"
-                    onSubmit={addIngrediente}
+                    onSubmit={addReceita}
                 >
                     <div>
                         <label>

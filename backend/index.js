@@ -2,9 +2,11 @@ const express = require('express');
 const controllers = require('./controllers'); 
 
 const app = express();
+const cors = require('cors')
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
+app.use(cors())
 
 app.use('/usuarios', controllers.usuario); //ok
 app.use('/receitas',controllers.receita) // ok 

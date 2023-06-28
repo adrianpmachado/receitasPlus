@@ -12,6 +12,7 @@ import IngredienteAdd from './pages/ingredientes/ingredienteAdd';
 import IngredienteEdit from './pages/ingredientes/ingredienteEdit';
 import ReceitaAdd from './pages/receitas/receitaAdd';
 import ReceitaShow from './pages/receitas/receitaShow';
+import ReceitaEdit from './pages/receitas/receitaEdit';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/receitas/receitaShow/:id",
     element: <ReceitaShow />
+  },
+  {
+    path: "/receitas/receitaEdit/:id",
+    element: <ReceitaEdit />
   },
   {
     path: "/configuracoes",

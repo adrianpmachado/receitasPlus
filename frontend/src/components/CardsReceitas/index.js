@@ -3,9 +3,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
+import api from "../../service/api"
+import { useEffect, useState } from "react"
 
 const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd}) => {
     const navigate = useNavigate();
+
+    const [rendimentoView, setRendimentoView] = useState("2")
+
+    function editRendimento(times) {
+        const rendimento = parseInt(rendimentoView) + times
+        setRendimentoView(rendimento)
+        api
+            .put("/receitas/" + id, { rendimento })
+    }
+
+    useEffect(() => {
+        function resReceitas()
+        {
+            api
+                .get('/receitas/' + id)
+                .then(response => {
+                    setRendimentoView(response.data.rendimento)
+                })
+        }
+        resReceitas()
+    }, [rendimentoView])
 
     return (
         <div class="cardsreceita">
@@ -19,7 +42,7 @@ const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd}) => {
                 <div 
                     style={{ width:"120px", zIndex: 10 }} 
                     onClick={() => {
-                        navigate("/receitas/receitaAdd")
+                        navigate("/receitas/receitaEdit/" + id)
                     }}
                 >
                     <FontAwesomeIcon icon={faPenToSquare} size="lg" style={{color: "#ffffff",}} />
@@ -41,9 +64,9 @@ const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd}) => {
             </div>    
             <div class="produzir-receita ">
                 <div class="roundedbar-receita ">
-                    <div class="minus-receita "> - </div>
-                    <div class="tituloprod-receita "> Produzir + </div>
-                    <div class="vezes-receita "> 2 </div>
+                    <div onClick={() => editRendimento(-1)} class="minus-receita "> - </div>
+                    <div onClick={() => editRendimento(+1)} class="tituloprod-receita "> Produzir + </div>
+                    <div class="vezes-receita "> {rendimentoView} </div>
                 </div>
             </div>    
         </div>

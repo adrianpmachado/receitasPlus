@@ -1,0 +1,175 @@
+.root-receita-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 600px;
+    background: #F4F7F5;
+}
+
+.header-receita-edit {
+    background-color: #222823;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 62px;
+    width: 100vw;
+    color: #F4F7F5;
+    font-weight: 600;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.header-receita-edit span {
+    position: absolute;
+    left: -155px;
+
+}
+
+.header-receita-edit .trash-edit-receita {
+    position: absolute;
+    left: 155px;
+
+}
+
+/* 
+    BODY
+*/
+
+.buttons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* FORMULARIO PRA ADICIONAR */
+
+.receita-edit-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 285px;
+    height: 600px;
+}
+
+.receita-edit-form div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 285px;
+}
+
+.receita-edit-form label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: 5px;
+}
+
+.receita-edit-form label span {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+
+    font-size: 15px;
+}
+
+.receita-edit-form label input {
+    width: 285px;
+    height: 44px;
+
+    border-radius: 15px;
+
+    background-color: #222823;
+    color: white;
+    
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+.receita-edit-form label textarea {
+    width: 100%;
+    height: 215px;
+
+    border-radius: 15px;
+
+    background-color: #222823;
+    color: white;
+    
+    font-size: 18px;
+    padding: 10px;
+}
+
+
+.receita-edit-form .show-ingrediente {
+    width: 300px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background-color: #222823;
+    color: white;
+    
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.receita-edit-form button {
+    width: 300px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background-color: #575A5E;
+    color: white;
+    
+    font-size: 20px;
+    font-weight: bold;
+
+    padding: 10px;
+}
+
+.footer-receita-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 62px;
+    width: 100vw;
+    
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.footer-receita-edit button {
+    width: 300px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background-color: #575A5E;
+    color: white;
+    
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 10px;
+    margin: 10px;
+}

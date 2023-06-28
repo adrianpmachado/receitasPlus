@@ -4,6 +4,7 @@ import { faArrowLeft, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import "./style.css"
 import { useEffect, useState } from "react"
+import api from "../../../service/api"
 
 const IngredienteEdit = () => {
     const navigate = useNavigate();
@@ -15,42 +16,33 @@ const IngredienteEdit = () => {
 
     function editIngrediente(e) {
         e.preventDefault()
-        
-        // TODO: UPDATE no banco
-        const requestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({ nome, unidade_medida: unidade, preco })
-        } 
-        fetch('/ingredientes/' + id, requestOptions)
-        .then(() => {
-            navigate("/ingredientes")
-        })
-        navigate("/ingredientes")
+        api
+            .put("/ingredientes/" + id, {
+                nome, unidade_medida: unidade, preco
+            })
+            .then(() => {
+                navigate("/ingredientes")
+            })
     }
 
     function removeIngrediente() {
-        const requestOptions = {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json'},
-        } 
-        fetch('/ingredientes/' + id, requestOptions)
-        .then(() => {
-            navigate("/ingredientes")
-        })
+        api
+            .delete("/ingredientes/" + id)
+            .then(() => {
+                navigate("/ingredientes")
+            })
     }
 
     useEffect(() => {
-        // TODO: GET no banco para pegar as infos do url
         function resIngredientes()
         {
-            fetch('/ingredientes/' + id)
-                .then(res => res.json())
-                .then(data => {
-                    setNome(data.nome);
-                    setPreco(data.preco);
-                    setUnidade(data.unidade_medida);
-                })
+            api
+                .get('/ingredientes/' + id)
+                .then(response => {
+                    setNome(response.data.nome);
+                    setPreco(response.data.preco);
+                    setUnidade(response.data.unidade_medida);
+                })  
         }
         resIngredientes()
     }, [])
@@ -80,7 +72,7 @@ const IngredienteEdit = () => {
                         </label>
                         <label>
                             <span>PREÇO</span>
-                            <input value={preco} onChange={(e) => setPreco(e.target.value)}></input>                        
+                            <input type="number" value={preco} onChange={(e) => setPreco(e.target.value)}></input>                        
                         </label>
                         <label>
                             <span>UNIDADE</span>

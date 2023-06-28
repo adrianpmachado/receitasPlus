@@ -6,6 +6,7 @@ import ReactLoading from 'react-loading'
 
 import "./style.css"
 import CardsReceitas from "../../components/CardsReceitas"
+import api from "../../service/api"
 
 const Receitas = () => {
     const navigate = useNavigate();
@@ -22,10 +23,10 @@ const Receitas = () => {
     useEffect(() => {
         function resReceitas()
         {
-            fetch('/receitas')
-                .then(res => res.json())
-                .then(data => {
-                    setReceitaInfos(data)
+            api
+                .get('/receitas')
+                .then(response => {
+                    setReceitaInfos(response.data)
                     setLoading(false)
                 })
         }
@@ -61,6 +62,7 @@ const Receitas = () => {
                     </div>
                     {receitaInfos.map(data => (
                         <CardsReceitas 
+                            key={data.id}
                             id={data.id}
                             text={data.nome} 
                             materiais={data.tempo_preparo} 

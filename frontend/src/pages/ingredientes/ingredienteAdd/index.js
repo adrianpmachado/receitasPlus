@@ -21,8 +21,9 @@ const IngredienteAdd = () => {
             body: JSON.stringify({ nome, unidade_medida: unidade, preco })
         } 
         fetch('/ingredientes', requestOptions)
-
-        navigate("/ingredientes")
+        .then(() => {
+            navigate("/ingredientes")
+        })
     }
 
     return (

@@ -15,7 +15,7 @@ const ReceitaShow = () => {
         tempo_preparo: "",
         rendimento: "",
         modo_preparo: "",
-        lucro_esperado: 0
+        lucro_esperado: ""
     }])
 
     function editRendimento(times) {
@@ -35,7 +35,7 @@ const ReceitaShow = () => {
                 })
         }
         resReceitas()
-    }, [receita])
+    }, [editRendimento, navigate])
 
     return (
         <div class="root-receita-show">

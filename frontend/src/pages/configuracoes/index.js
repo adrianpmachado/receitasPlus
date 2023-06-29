@@ -34,19 +34,19 @@ const Configuracoes = () => {
                 </span>
                 CONFIGURAÇÕES
             </header>
-            <div className="buttons-wrapper">
+            <div class="buttons-wrapper-configuracoes">
                 <form
-                    className="configuracoes-form"
+                    class="configuracoes-form"
                     onSubmit={salvarConfiguracoes}
                 >
                     <div>
                         <label>
                             <span>CUSTO DE TRABALHO</span>
-                            <input value={custoTrabalho} onChange={(e) => setCustoTrabalho(e.target.value)}></input>                        
+                            <input defaultValue={100 + " R$/hr"}></input>                        
                         </label>
                         <label>
-                            <span>LUCRO PADRÃO</span>
-                            <input value={lucroPadrao} onChange={(e) => setLucroPadrao(e.target.value)}></input>                        
+                            <span>LUCRO PADRAO (R$)</span>
+                            <input type="number" defaultValue={10.0}></input>                        
                         </label>
                     </div>
                     <button type="submit">SALVAR</button>

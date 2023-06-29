@@ -17,21 +17,23 @@ const Receitas = () => {
         nome: "",
         tempo_preparo: "",
         rendimento: "",
-        lucro_esperado: ""
+        lucro_esperado: 0
     }])
 
     useEffect(() => {
+        setLoading(true)
         function resReceitas()
         {
             api
                 .get('/receitas')
                 .then(response => {
                     setReceitaInfos(response.data)
-                    setLoading(false)
+                    
                 })
+                .then(() => setLoading(false))
         }
         resReceitas()
-    }, [])
+    }, [navigate])
 
     return (
         <div class="root-receitas">
@@ -54,7 +56,7 @@ const Receitas = () => {
                 <div class="buttons-wrapper-receitas">
                     <div 
                         class="add-button-wrapper-receitas" 
-                        onClick={() => navigate("/receitas/receitaAdd")}
+                        onClick={() => {navigate("/receitas/receitaAdd")}}
                     >
                         <div>
                             <FontAwesomeIcon icon={faPlus} size="3x" style={{color: "#ffffff",}} />

@@ -24,22 +24,30 @@
 .header-configuracoes span {
     position: absolute;
     left: -155px;
+
 }
 
-.buttons-wrapper {
+/* 
+    BODY
+*/
+
+.buttons-wrapper-configuracoes {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    margin-top: 170px;
 }
+
+/* FORMULARIO PRA ADICIONAR */
 
 .configuracoes-form {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+
     width: 285px;
-    height: 300px;
+    height: 600px;
 }
 
 .configuracoes-form div {
@@ -47,35 +55,64 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
     width: 285px;
+}
+
+.configuracoes-form label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: 5px;
 }
 
 .configuracoes-form label span {
     display: flex;
     align-items: start;
     justify-content: left;
+
     font-size: 15px;
-    margin-bottom: 5px;
 }
 
 .configuracoes-form label input {
     width: 285px;
     height: 44px;
+
     border-radius: 15px;
+
     background-color: #222823;
     color: white;
+    
     font-size: 18px;
     padding-left: 15px;
-    margin-bottom: 10px;
+}
+
+.configuracoes-form label select {
+    width: 300px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background-color: #222823;
+    color: white;
+    
+    font-size: 18px;
+    padding: 10px;
 }
 
 .configuracoes-form button {
     width: 300px;
     height: 45px;
+
     border-radius: 15px;
+
     background-color: #575A5E;
     color: white;
+    
     font-size: 20px;
     font-weight: bold;
+
     padding: 10px;
 }

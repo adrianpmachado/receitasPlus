@@ -13,47 +13,44 @@ const ReceitaEdit = () => {
     const id = window.location.pathname.split("/")[3]
     const [nome, setNome] = useState("");
     const [tempo, setTempo] = useState(0);
-    const [lucro, setLucro] = useState(0);
     const [modoPreparo, setModoPreparo] = useState("");
     const [rendimento, setRendimento] = useState("");
 
     function editReceita(e) {
         e.preventDefault()
+        api
+            .put("/receitas/" + id, {
+                nome, tempo_preparo: tempo, rendimento: rendimento, usuarioId: 1, 
+                modo_preparo: modoPreparo
+            })
+            .then(() => {
+                navigate("/receitas")
+            })
     }
 
     function deleteReceita() {
         api
             .delete("/receitas/" + id)
             .then(() => {
-                navigate("/receitas")
-            })
-    }
-
-    function editRendimento(times) {
-        const novoRendimento =  parseInt(rendimento) + times
-        setRendimento(novoRendimento)
-        api
-            .put("/receitas/" + id, {
-                rendimento: novoRendimento
+                window.location.pathname = "/receitas"
             })
     }
 
     useEffect(() => {
-        function resReceitas()
+        function resReceita()
         {
             api
                 .get('/receitas/' + id)
                 .then(response => {
-                    const {nome, tempo_preparo, rendimento, modo_preparo, lucro_esperado} = response.data
+                    const {nome, tempo_preparo, rendimento, modo_preparo} = response.data
                     setNome(nome)
                     setTempo(tempo_preparo)
-                    setLucro(lucro_esperado)
                     setModoPreparo(modo_preparo)
                     setRendimento(rendimento)
                 })
         }
-        resReceitas()
-    }, [])
+        resReceita()
+    }, [navigate])
 
     return (
         <div class="root-receita-edit">
@@ -87,20 +84,20 @@ const ReceitaEdit = () => {
                         </label>
                         <label>
                             <span>MULTIPLICADOR DE LUCRO (vezes)</span>
-                            <input value={rendimento} onChange={(e) => setLucro(e.target.value)}></input>                        
+                            <input value={rendimento} onChange={(e) => setRendimento(e.target.value)}></input>                        
                         </label>
                         <label>
                             <span>MODO DE PREPARO</span>
                             <textarea value={modoPreparo} onChange={(e) => setModoPreparo(e.target.value)}></textarea>                        
                         </label>
                         <button type="button" class="show-ingrediente" >ADICIONAR INGREDIENTES</button>
+                        <button type="submit" class="show-ingrediente" >SALVAR</button>
                     </div>
                 </form>
             </div>
             <footer
                 class="footer-receita-edit"
             >
-                <button type="button" class="show-ingrediente" >SALVAR</button>
             </footer>
         </div>
     )

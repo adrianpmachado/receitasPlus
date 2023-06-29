@@ -25,10 +25,10 @@ const CardsReceitas = ({id, text, materiais, maoDeObra, custoProd}) => {
                 .get('/receitas/' + id)
                 .then(response => {
                     setRendimentoView(response.data.rendimento)
-                })
+                }).catch(err => {navigate("/receitas")})
         }
         resReceitas()
-    }, [rendimentoView])
+    }, [])
 
     return (
         <div class="cardsreceita">

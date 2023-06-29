@@ -20,7 +20,7 @@ const ReceitaAdd = () => {
         api
             .post("/receitas", {
                 nome, tempo_preparo: tempo, rendimento: lucro, usuarioId: 1, 
-                modo_preparo: modoPreparo, lucro_esperao: 0
+                modo_preparo: modoPreparo, lucro_esperado: 10.0
             })
             .then(() => {
                 navigate("/receitas")
